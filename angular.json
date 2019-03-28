@@ -58,7 +58,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "in-cart:build"
+            "browserTarget": "in-cart:build",
+            "ssl": true
           },
           "configurations": {
             "production": {
