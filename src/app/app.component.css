@@ -1,0 +1,28 @@
+.cart-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center; 
+    align-content: flex-start;
+}
+.product-box{
+    flex-basis: 23%; margin: 7px
+}
+.product-outer{
+    display: flex; justify-content:flex-start; align-content: flex-start; align-items: flex-start;
+    background: #eee; border-radius: 5px
+}
+.product-img{
+    margin-bottom: -2px;width: 100%; border-radius: 10px; box-shadow: 0px 0px 2px 0px black
+}
+
+@media only screen and (max-width: 1024px) {
+    .product-box{
+        flex-basis: 31%
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .product-box{
+        flex-basis: 100%
+    }
+}

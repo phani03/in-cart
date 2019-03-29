@@ -1,0 +1,34 @@
+<div [class.active-cart]="cartOpen"  >
+  <div *ngIf="!cartOpen" class="header">
+    <div class="header-bar">
+      <div>InCart</div>
+      <div><a href="javascript:void(0)" (click)="cartOpen = !cartOpen"> Cart({{dataService.cartList.length}}) </a></div>
+    </div>
+  </div>
+  <div *ngIf="cartOpen" class="flex flex-dir">
+    <div class="summary">
+        <a href="javascript:void(0)" (click)="cartOpen = !cartOpen"> Back to Shopping</a>
+      <div> Total items : {{dataService.cartList.length}}</div>
+      <div>Total: {{dataService.totalValue}}</div>
+      <div>Payment: COD</div>
+      <div>Details: <br><textarea name="" id="" cols="30" rows="10"></textarea></div>
+      <button (click)="placeOrder()" *ngIf="dataService.cartList.length>0">Place Order</button>
+    </div>
+    <div class="cart-list">
+      <div *ngFor="let product of dataService.cartList;trackBy trackFun" class="pad-5"> 
+      <div class="flex item-box">
+        <div class="flex2">
+            <img src="{{product.imgSrc}}" class="item-img" alt="{{product.name}}">
+        </div>
+        <div class="flex4 pad-5">
+            <b>{{product.name}}</b>
+            <div>{{product.brand}}</div>
+            <div>{{product.price}}</div>
+            <button *ngIf="!product.cart" class="btn" (click)="addProduct(product)">Add</button>
+            <button *ngIf="product.cart" class="btn" (click)="removeProduct(product)">Remove</button>
+        </div>    
+      </div>
+    </div>
+    </div>
+  </div>      
+</div>
